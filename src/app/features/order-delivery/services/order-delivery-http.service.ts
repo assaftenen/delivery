@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { City } from './order-delivery.models';
-import * as URLS from './order-delivery.const';
+import { City } from '../order-delivery.models';
+import * as URLS from '../order-delivery.const';
 
 @Injectable()
 export class OrderDeliveryHttpService {

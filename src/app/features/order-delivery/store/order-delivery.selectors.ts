@@ -5,5 +5,5 @@ export const selectOrderDeliveryState = createFeatureSelector<fromOrderDelivery.
   fromOrderDelivery.orderDeliveryFeatureKey
 );
 
-export const allCities$ = createSelector(selectOrderDeliveryState, orderState => orderState.locations )
+export const allCities = createSelector(selectOrderDeliveryState, orderState => orderState.locations )
 export const areLocationsLoaded = createSelector(selectOrderDeliveryState, orderState => orderState.areLocationsLoaded )
