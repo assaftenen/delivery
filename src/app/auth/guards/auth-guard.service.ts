@@ -8,24 +8,27 @@ import {
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
+import { LocalStorageService } from 'src/app/core/services';
 
 import { selectIsLoggedIn } from './../store/selectors';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuardService implements CanActivate {
-  constructor(private router: Router, private store: Store) {}
+  constructor(
+    private router: Router,
+    private store: Store,
+    private localStorage: LocalStorageService
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<boolean> {
-    return this.store.select(selectIsLoggedIn).pipe(
-      take(1),
-      tap(isLoggedIn => {
-        if (!isLoggedIn) {
-          this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
-        }
-      })
-    );
+  ): boolean {
+    const token = this.localStorage.getItem('_token');
+    if(token){
+      return true
+    }
+    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } })
+    return false
   }
 }

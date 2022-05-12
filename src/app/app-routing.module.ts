@@ -7,16 +7,19 @@ const routes: Routes = [
     path: '',
     redirectTo: 'orderDelivery',
     pathMatch: 'full',
-
   },
-  { path: 'orderDelivery',
-  canActivate: [AuthGuardService],
-   loadChildren: () => import('./features/order-delivery/order-delivery.module').then(m => m.OrderDeliveryModule)
-  }
+  {
+    path: 'orderDelivery',
+    canActivate: [AuthGuardService],
+    loadChildren: () =>
+      import('./features/order-delivery/order-delivery.module').then(
+        (m) => m.OrderDeliveryModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

@@ -13,15 +13,12 @@ export const initialState: AuthState = {
   isLoggedIn: false,
   user: undefined,
   accessTokenStatus: TokenStatus.PENDING,
-  refreshTokenStatus: TokenStatus.PENDING,
   isLoadingLogin: false,
   hasLoginError: false,
 };
 
 export const reducer = createReducer(
   initialState,
-
-  // Login
   on(
     AuthActions.loginRequest,
     (state): AuthState => ({
@@ -32,43 +29,30 @@ export const reducer = createReducer(
     })
   ),
 
-  // Refresh token while first UI navigation adding status "VALIDATING"
-  on(
-    AuthActions.refreshTokenRequest,
-    (state): AuthState => ({
-      ...state,
-      refreshTokenStatus: TokenStatus.VALIDATING,
-    })
-  ),
-
-  // Login & Refresh token
   on(
     AuthActions.loginSuccess,
-    AuthActions.refreshTokenSuccess,
     (state): AuthState => ({
       ...state,
       isLoggedIn: true,
       isLoadingLogin: false,
       accessTokenStatus: TokenStatus.VALID,
-      refreshTokenStatus: TokenStatus.VALID,
     })
   ),
   on(
     AuthActions.loginFailure,
-    AuthActions.refreshTokenFailure,
+
     (state, action): AuthState => ({
       ...state,
       isLoadingLogin: false,
       accessTokenStatus: TokenStatus.INVALID,
-      refreshTokenStatus: TokenStatus.INVALID,
       hasLoginError: action.type === '[Auth] Login Failure' && !!action.error,
     })
-  ),
-
-
-
+  )
 );
 
-export function authReducer(state: AuthState | undefined, action: Action): AuthState {
+export function authReducer(
+  state: AuthState | undefined,
+  action: Action
+): AuthState {
   return reducer(state, action);
 }

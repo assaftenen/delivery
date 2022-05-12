@@ -6,12 +6,7 @@ import { LocalStorageService } from './local-storage.service';
 export class TokenStorageService {
   private accessTokenKey: string;
 
-
-  constructor(
-
-    private localStorageService: LocalStorageService
-  ) {
-
+  constructor( private localStorageService: LocalStorageService ) {
     this.accessTokenKey = environment.auth.accessTokenKey || '_token';
   }
 
@@ -19,16 +14,10 @@ export class TokenStorageService {
     return this.localStorageService.getItem(this.accessTokenKey) as string;
   }
 
-  saveAccessToken(token: string) :void {
+  saveToken(token: string) {
     this.localStorageService.setItem(this.accessTokenKey, token);
   }
-
-
-  saveTokens(accessToken: string) {
-    this.saveAccessToken(accessToken);
-  }
-
-  removeTokens():void {
+  removeToken():void {
     this.localStorageService.removeItem(this.accessTokenKey);
   }
 }

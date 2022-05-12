@@ -8,7 +8,6 @@ import * as AuthSelectors from '../store/selectors/auth.selectors';
 @Injectable()
 export class AuthFacade {
   auth$ = this.store.select(AuthSelectors.selectAuth);
-  user$ = this.store.select(AuthSelectors.selectAuthUser);
   isLoggedIn$ = this.store.select(AuthSelectors.selectIsLoggedIn);
   isLoadingLogin$ = this.store.select(AuthSelectors.selectIsLoadingLogin);
   hasLoginError$ = this.store.select(AuthSelectors.selectLoginError);
@@ -19,8 +18,5 @@ export class AuthFacade {
     this.store.dispatch(AuthActions.loginRequest({ email, password }));
   }
 
-  logout() {
-    this.store.dispatch(AuthActions.logout());
-  }
 
 }

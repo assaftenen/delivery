@@ -12,8 +12,8 @@ import * as URLs from './models'
 import { environment } from 'src/environments/environment';
 
 export interface AccessData {
-  accessToken: string;
-  tokenType?: 'Bearer';
+token?:string;
+res?:string
 
 }
 

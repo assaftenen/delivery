@@ -1,7 +1,9 @@
 export const environment = {
-  production: true,
-  appVersion: '1.0.0',
-  baseUrl: 'http://localhost:3000',
-  settings: {
-  },
+  baseUrl: 'https://mock-stg.getpackage-dev.com',
+    auth: {
+      securePassword:'Getpackage2022!',
+      // key to store the token at local storage
+      accessTokenKey: '_token',
+    },
+
 };

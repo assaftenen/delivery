@@ -2,50 +2,74 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, exhaustMap, finalize, map, tap } from 'rxjs/operators';
+import {
+  catchError,
+  exhaustMap,
+  finalize,
+  map,
+  switchMap,
+  tap,
+} from 'rxjs/operators';
 import { TokenStorageService } from 'src/app/core/services';
 import { AuthService } from '../../auth.service';
-import  * as  AuthActions  from '../actions/auth.actions'
+import * as AuthActions from '../actions/auth.actions';
 @Injectable()
 export class AuthEffects {
-
   login$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(AuthActions.loginRequest),
-      exhaustMap(credentials =>
+      switchMap((credentials) =>
         this.authService.login(credentials.email, credentials.password).pipe(
-          map(data => {
-            // save tokens
-            this.tokenStorageService.saveTokens(data.accessToken);
-            // trigger login success action
-            return AuthActions.loginSuccess();
+          map((data) => {
+            const { token } = data;
+            if (token) {
+              // save token
+              this.tokenStorageService.saveToken(token);
+              // trigger login success action
+              return AuthActions.loginSuccess();
+            } else {
+              return AuthActions.wrongCredentials();
+            }
           }),
-          catchError(error => of(AuthActions.loginFailure({ error })))
+          catchError((error) => of(AuthActions.loginFailure({ error })))
         )
       )
     );
   });
 
-  onLoginSuccess$ = createEffect(() => {
-    return this.actions$.pipe(
-      ofType(AuthActions.loginSuccess),
-      tap(() => {
-        // redirect to dashboard
-        this.router.navigateByUrl(
-           '/'
-        );
-
-      })
-    );
-  });
-
-
-  onLoginOrRefreshTokenFailure$ = createEffect(
+  onLoginSuccess$ = createEffect(
     () => {
       return this.actions$.pipe(
-        ofType(AuthActions.loginFailure, AuthActions.refreshTokenFailure),
+        ofType(AuthActions.loginSuccess),
         tap(() => {
-          this.tokenStorageService.removeTokens();
+          if (true) {
+            this.router.navigateByUrl('/');
+          }
+        })
+      );
+    },
+    { dispatch: false }
+  );
+
+  onWrongCredentials$ = createEffect(
+    () => {
+      //todo  - toast it
+      return this.actions$.pipe(
+        ofType(AuthActions.wrongCredentials),
+        tap(() => {
+          globalThis.prompt('wrong credentials');
+        })
+      );
+    },
+    { dispatch: false }
+  );
+
+  onLoginFailure$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(AuthActions.loginFailure),
+        tap((error) => {
+          this.tokenStorageService.removeToken();
         })
       );
     },

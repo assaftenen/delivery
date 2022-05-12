@@ -4,20 +4,18 @@ export enum TokenStatus {
     VALID = 'VALID',
     INVALID = 'INVALID',
   }
-  
+
   export interface AuthState {
     isLoggedIn: boolean;
     user?: AuthUser;
     accessTokenStatus: TokenStatus;
-    refreshTokenStatus: TokenStatus;
     isLoadingLogin: boolean;
     hasLoginError: boolean;
   }
-  
+
   export interface AuthUser {
     id: number;
     email?: string;
     firstName: string;
     lastName: string;
   }
-  
