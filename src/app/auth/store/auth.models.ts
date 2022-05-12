@@ -7,7 +7,6 @@ export enum TokenStatus {
 
   export interface AuthState {
     isLoggedIn: boolean;
-    user?: AuthUser;
     accessTokenStatus: TokenStatus;
     isLoadingLogin: boolean;
     hasLoginError: boolean;

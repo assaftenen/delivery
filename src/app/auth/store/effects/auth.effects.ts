@@ -57,6 +57,7 @@ export class AuthEffects {
       return this.actions$.pipe(
         ofType(AuthActions.wrongCredentials),
         tap(() => {
+          this.tokenStorageService.removeToken();
           globalThis.prompt('wrong credentials');
         })
       );

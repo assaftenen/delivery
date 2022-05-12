@@ -5,12 +5,12 @@ Front-end task
 Please read all the instructions before you start…Your challenge (if you choose to accept it...) is as follow:
 
 ---
-Create a ‘Login’ page
-  - the user should be able to type an email and a password
-  - submit the email and the password to the login endpoint, you would receive a token from the server
-  - the password should be Getpackage2022!any other password will receive an unknown request response from the server
-  - display an appropriate message for the wrong password
-  - navigate to the Order Delivery page 
+Create a ‘Login’ page - done 
+  - the user should be able to type an email and a password - done
+  - submit the email and the password to the login endpoint, you would receive a token from the server - done
+  - the password should be Getpackage2022!any other password will receive an unknown request response from the server - done
+  - display an appropriate message for the wrong password - done but need *toaster service*
+  - navigate to the Order Delivery page - done
   - use router for navigating between pages (localhost:4200/login, localhost:4200/create)
 
 

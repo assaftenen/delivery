@@ -11,7 +11,6 @@ export interface AuthPartialState {
 
 export const initialState: AuthState = {
   isLoggedIn: false,
-  user: undefined,
   accessTokenStatus: TokenStatus.PENDING,
   isLoadingLogin: false,
   hasLoginError: false,
