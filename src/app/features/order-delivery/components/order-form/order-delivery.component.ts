@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { OrderFacade } from '../services/orderFacade.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { OrderFacade } from '../../services/orderFacade.service';
+
 
 @Component({
   selector: 'app-order-delivery',
@@ -9,7 +9,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class OrderDeliveryComponent implements OnInit {
   formGroup: any;
-  constructor(private facade: OrderFacade) {}
+  constructor( public orderFacade: OrderFacade) {
+
+  }
   ngOnInit(): void {
 
   }

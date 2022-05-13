@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { FormGroup, FormControl, Validators,  } from '@angular/forms';
+import { City } from '../order-delivery.models';
 
 @Component({
   selector: 'app-order-form',
@@ -7,9 +8,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./order-form.component.scss']
 })
 export class OrderFormComponent implements OnInit {
+  @Input() cities:City[] | null = null;
   formGroup: any;
-
   constructor() { }
+
   ngOnInit(): void {
     this.buildFormGroup();
   }

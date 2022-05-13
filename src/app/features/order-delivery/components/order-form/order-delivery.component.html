@@ -1,0 +1,8 @@
+<ng-container *ngIf="orderFacade.cities$| async as cities">
+  <h2>Order Calculator Form</h2>
+  <div class="order-container">
+    <div *ngIf="cities" class="order-form">
+      <app-order-form [cities]="cities" ></app-order-form>
+    </div>
+  </div>
+</ng-container>

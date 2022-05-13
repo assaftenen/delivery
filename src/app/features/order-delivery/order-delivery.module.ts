@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 //order delivery module
-import { OrderDeliveryComponent } from './components/order-delivery.component';
+
 import { RouterModule, Routes } from '@angular/router';
 
 //ngrx
@@ -19,14 +19,17 @@ import { OrderFacade } from './services/orderFacade.service';
 import { OrderDeliveryHttpService } from './services/order-delivery-http.service';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { OrderFormComponent } from './order-form/order-form.component';
+import { OrderDeliveryComponent } from './components/order-form/order-delivery.component';
 
-
-const routes: Routes = [{ path: '',
- component: OrderDeliveryComponent,
- resolve:{
-   cities:CitiesResolver
- }
- }];
+const routes: Routes = [
+  {
+    path: '',
+    component: OrderDeliveryComponent,
+    resolve: {
+      cities: CitiesResolver,
+    },
+  },
+];
 
 @NgModule({
   declarations: [OrderDeliveryComponent, OrderFormComponent],
@@ -35,8 +38,8 @@ const routes: Routes = [{ path: '',
     RouterModule.forChild(routes),
     StoreModule.forFeature(orderDeliveryFeatureKey, reducer),
     EffectsModule.forFeature([OrderDeliveryEffects]),
-    SharedModule
+    SharedModule,
   ],
-  providers: [OrderDeliveryHttpService, CitiesResolver, OrderFacade]
+  providers: [OrderDeliveryHttpService, CitiesResolver, OrderFacade],
 })
 export class OrderDeliveryModule {}
