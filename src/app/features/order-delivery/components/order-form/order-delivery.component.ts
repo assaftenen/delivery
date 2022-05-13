@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
+import { City } from '../../order-delivery.models';
 import { OrderFacade } from '../../services/orderFacade.service';
-
 
 @Component({
   selector: 'app-order-delivery',
@@ -9,11 +9,9 @@ import { OrderFacade } from '../../services/orderFacade.service';
 })
 export class OrderDeliveryComponent implements OnInit {
   formGroup: any;
-  constructor( public orderFacade: OrderFacade) {
-
+  constructor(public orderFacade: OrderFacade) {}
+  ngOnInit(): void {}
+  onLocationChanged(value: { city: City; isPickup: boolean }): void {
+    this.orderFacade.updateLocationPrice(value);
   }
-  ngOnInit(): void {
-
-  }
-
 }

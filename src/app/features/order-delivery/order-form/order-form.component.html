@@ -1,34 +1,104 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
-
-  <div class="fields">
-    <mat-form-field appearance="outline" class="form-element">
-      <mat-label>Name</mat-label>
-      <input matInput placeholder="Name" formControlName="name" />
-    </mat-form-field>
-
-    <mat-form-field appearance="outline" class="form-element">
-      <mat-label>Phone Number</mat-label>
-      <input matInput placeholder="Phone Number" formControlName="phoneNumber" />
-    </mat-form-field>
-  </div>
-  <div class="fields">
-    <mat-form-field  appearance="outline">
-      <mat-label>City Address</mat-label>
-      <textarea matInput placeholder="City Address" formControlName="address"></textarea>
-    </mat-form-field>
-    <mat-form-field  appearance="outline">
-      <mat-label>Receiver Address</mat-label>
-      <textarea matInput placeholder="Receiver Address" formControlName="receiverAddress"></textarea>
-    </mat-form-field>
-  </div>
-  <div class="fields">
-    <mat-form-field appearance="outline" class="form-element">
-      <mat-label>Receiver Phone Number</mat-label>
-      <input matInput placeholder="Receiver Phone Number" formControlName="receiverPhoneNumbers" />
-    </mat-form-field>
-    <mat-form-field appearance="outline" class="form-element">
-      <mat-label>Drop-off Address</mat-label>
-      <textarea matInput placeholder="Drop-off Address" formControlName="dropAddress"></textarea>
-    </mat-form-field>
-  </div>
-</form>
+<div class="form-container">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
+    <div class="fields-container">
+      <!-- Name,  Phone -->
+      <div class="fields">
+        <div class="field">
+          <mat-form-field appearance="outline" class="form-element">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Name" formControlName="name" />
+          </mat-form-field>
+        </div>
+        <div class="field">
+          <mat-form-field appearance="outline" class="form-element">
+            <mat-label>Phone Number</mat-label>
+            <input
+              matInput
+              placeholder="Phone Number"
+              formControlName="phoneNumber"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- pickup address + city -->
+      <div class="fields">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>PickUp Address</mat-label>
+            <textarea
+              matInput
+              placeholder="Pickup Address"
+              formControlName="pickupAddress"
+            ></textarea>
+          </mat-form-field>
+        </div>
+        <div class="pickupCity">
+          <mat-form-field appearance="outline">
+            <mat-label>Pickup City</mat-label>
+            <mat-select
+              formControlName="pickupCity"
+              (selectionChange)="cityChanged($event.value, true)"
+            >
+              <mat-option *ngFor="let city of cities" [value]="city">
+                {{ city.enName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- drop city  reciever Name-->
+      <div class="fields">
+        <div class="dropoffCity">
+          <mat-form-field appearance="outline">
+            <mat-label> Drop-off City</mat-label>
+            <mat-select
+              formControlName="dropOffCity"
+              (selectionChange)="cityChanged($event.value, false)"
+            >
+              <mat-option *ngFor="let city of cities" [value]="city">
+                {{ city.enName }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Receiver Name</mat-label>
+            <textarea
+              matInput
+              placeholder="Receiver Name"
+              formControlName="receiverName"
+            ></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- Address and phone number -->
+      <div class="fields">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Receiver Address</mat-label>
+            <textarea
+              matInput
+              placeholder="Receiver Address"
+              formControlName="dropOffAddress"
+            ></textarea>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline" class="form-element">
+            <mat-label>Receiver Phone Number</mat-label>
+            <input
+              matInput
+              placeholder="Receiver Phone Number"
+              formControlName="receiverPhoneNumbers"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="fields">
+        <button mat-button type="submit" color="primary">Submit</button>
+      </div>
+    </div>
+  </form>
+  <p>Delivery Price - {{ price }}</p>
+</div>

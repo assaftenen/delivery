@@ -1,8 +1,12 @@
-<ng-container *ngIf="orderFacade.cities$| async as cities">
-  <h2>Order Calculator Form</h2>
-  <div class="order-container">
-    <div *ngIf="cities" class="order-form">
-      <app-order-form [cities]="cities" ></app-order-form>
+<ng-container *ngIf="orderFacade.cities$ | async as cities">
+  <div class="order-delivery-container">
+    <h2>Order Form</h2>
+    <div *ngIf="cities" class="order-container">
+      <app-order-form
+        [cities]="cities"
+        [price]="orderFacade.price$ | async"
+        (locationChanged)="onLocationChanged($event)"
+      ></app-order-form>
     </div>
   </div>
 </ng-container>

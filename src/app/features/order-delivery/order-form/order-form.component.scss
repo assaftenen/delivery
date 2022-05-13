@@ -1,11 +1,19 @@
-.order-form{
+.fields-container {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   flex-wrap: wrap;
-  width: 40vw;
-  .fields{
+  align-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+  .fields {
     display: flex;
+    flex-direction: column;
+    align-content: space-between;
     justify-content: space-between;
-    flex-wrap: wrap-reverse;
+    align-items: center;
+    .mat-form-field {
+      width: 30vw;
+      height: 10vh;
+    }
   }
 }

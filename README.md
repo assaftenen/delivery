@@ -16,14 +16,14 @@ Create a ‘Login’ page - done
 
 Create an ‘Order Delivery’ page
   - the page should have a form with the following values:
-  - the Sender name
-  - Sender phone number - valid il number
-  - Pickup address - free text
-  - City - drop-down list (get the list from GP server)
-  - City - drop-down list (get the list from GP server)
-  - Receiver name
-  - Receiver phone number - valid il number
-  - Drop-off address - free text
+    - the Sender name
+    - Sender phone number - valid il number
+    - Pickup address - free text
+    - City - drop-down list (get the list from GP server)
+    - City - drop-down list (get the list from GP server)
+    - Receiver name
+    - Receiver phone number - valid il number
+    - Drop-off address - free text
 
 
 Calculate and display the price according to the price received from the server on the city's list
