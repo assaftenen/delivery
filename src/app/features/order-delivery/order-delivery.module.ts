@@ -15,9 +15,10 @@ import {
   orderDeliveryFeatureKey,
 } from './store';
 import { CitiesResolver } from './order-delivery.resolver';
-import { OrderFacadeService } from './services/orderFacade.service';
+import { OrderFacade } from './services/orderFacade.service';
 import { OrderDeliveryHttpService } from './services/order-delivery-http.service';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { OrderFormComponent } from './order-form/order-form.component';
 
 
 const routes: Routes = [{ path: '',
@@ -28,7 +29,7 @@ const routes: Routes = [{ path: '',
  }];
 
 @NgModule({
-  declarations: [OrderDeliveryComponent],
+  declarations: [OrderDeliveryComponent, OrderFormComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -36,6 +37,6 @@ const routes: Routes = [{ path: '',
     EffectsModule.forFeature([OrderDeliveryEffects]),
     SharedModule
   ],
-  providers: [OrderDeliveryHttpService, CitiesResolver, OrderFacadeService]
+  providers: [OrderDeliveryHttpService, CitiesResolver, OrderFacade]
 })
 export class OrderDeliveryModule {}

@@ -1,0 +1,11 @@
+.order-form{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 40vw;
+  .fields{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap-reverse;
+  }
+}
