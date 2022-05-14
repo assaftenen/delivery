@@ -3,6 +3,7 @@ import { Provider } from '@angular/core';
 
 import { AuthInterceptor } from './auth.interceptor';
 
+
 export const authInterceptorProviders: Provider[] = [
   { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
 ];

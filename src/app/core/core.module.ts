@@ -1,4 +1,4 @@
-import { authInterceptorProviders } from './../auth/interceptors/index';
+import { authInterceptorProviders } from './auth/interceptors/index';
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 
@@ -8,7 +8,7 @@ import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 
 import { environment } from "../../environments/environment";
-import { AuthModule } from "../auth/auth.module";
+import { AuthModule } from "./auth/auth.module";
 
 @NgModule({
   imports: [

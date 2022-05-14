@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import * as AuthActions from '../store/actions/auth.actions';
-import * as AuthSelectors from '../store/selectors/auth.selectors';
+import * as AuthActions from './actions/auth.actions';
+import * as AuthSelectors from './selectors/auth.selectors';
 
 
 @Injectable()

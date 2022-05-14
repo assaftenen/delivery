@@ -6,6 +6,7 @@
         [cities]="cities"
         [price]="orderFacade.price$ | async"
         (locationChanged)="onLocationChanged($event)"
+        (submitForm)="onSubmitForm($event)"
       ></app-order-form>
     </div>
   </div>

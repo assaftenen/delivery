@@ -4,6 +4,7 @@ import * as OrderActions from '../store/order-delivery.actions';
 import { Store } from '@ngrx/store';
 import { City } from '../order-delivery.models';
 import { BehaviorSubject, Observable, of } from 'rxjs';
+import { OrderForm } from '../order-form/order-form.component';
 
 @Injectable()
 export class OrderFacade {
@@ -26,11 +27,15 @@ export class OrderFacade {
   }
   updatePrice() {
     const isExtraTax: boolean =
-      this.pickUpCity?.enName === this.dropOffCity?.enName;
+      this.pickUpCity?.enName !== this.dropOffCity?.enName;
     if (this.dropOffCity && this.pickUpCity) {
       this.priceDataSource.next(
         this.dropOffCity.price + this.pickUpCity.price + (isExtraTax ? 10 : 0)
       );
     }
+  }
+
+  submitOrderForm(payload: OrderForm) {
+    this.store.dispatch(OrderActions.submitOrderForm({payload}));
   }
 }

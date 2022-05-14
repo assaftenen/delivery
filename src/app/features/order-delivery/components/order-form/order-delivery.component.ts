@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { City } from '../../order-delivery.models';
+import { OrderForm } from '../../order-form/order-form.component';
 import { OrderFacade } from '../../services/orderFacade.service';
 
 @Component({
@@ -13,5 +14,9 @@ export class OrderDeliveryComponent implements OnInit {
   ngOnInit(): void {}
   onLocationChanged(value: { city: City; isPickup: boolean }): void {
     this.orderFacade.updateLocationPrice(value);
+  }
+
+  onSubmitForm(value:any){
+    this.orderFacade.submitOrderForm(value);
   }
 }

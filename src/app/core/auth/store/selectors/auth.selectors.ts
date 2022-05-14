@@ -1,4 +1,4 @@
-import { AuthState } from './../auth.models';
+import { AuthState } from '../auth.models';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { AUTH_FEATURE_KEY } from '../reducers/auth.reducer';

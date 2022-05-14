@@ -2,9 +2,6 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { APP_INITIALIZER, Injectable, Provider } from '@angular/core';
 import { Store } from '@ngrx/store';
 import {  Observable, throwError } from 'rxjs';
-
-
-import {  TokenStorageService } from '../core/services';
 import * as URLs from './models'
 import { environment } from 'src/environments/environment';
 
@@ -16,12 +13,12 @@ res?:string
 
 @Injectable()
 export class AuthService {
-  private hostUrl: string;
+  private baseUrl: string;
   constructor(
     private store: Store,
     private http: HttpClient,
   ) {
-    this.hostUrl = environment.baseUrl;
+    this.baseUrl = environment.baseUrl;
   }
 
   /**
@@ -32,7 +29,7 @@ export class AuthService {
    */
   login(email: string, password: string): Observable<AccessData> {
     console.log({ email, password });
-    return this.http.post<AccessData>(`${this.hostUrl}/${URLs.LOGIN}`, {
+    return this.http.post<AccessData>(`${this.baseUrl}/${URLs.LOGIN}`, {
       email,
       password,
     });

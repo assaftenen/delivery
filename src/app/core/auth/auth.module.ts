@@ -14,7 +14,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AuthEffects } from './store/effects';
 import { AuthFacade } from './store/auth.facade';
 import { authReducer, AUTH_FEATURE_KEY } from './store/reducers';
-import { SharedModule } from '../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { NoAuthGuardService } from './guards';
 
 

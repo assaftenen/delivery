@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { LocalStorageService } from 'src/app/core/services';
 
-import { selectIsLoggedIn } from './../store/selectors';
+import { selectIsLoggedIn } from '../store/selectors';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuardService implements CanActivate {

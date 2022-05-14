@@ -1,4 +1,4 @@
-import { AuthUser } from './../auth.models';
+import { AuthUser } from '../auth.models';
 import { createAction, props } from '@ngrx/store';
 
 
