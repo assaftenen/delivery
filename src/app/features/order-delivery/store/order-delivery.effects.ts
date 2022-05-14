@@ -33,14 +33,25 @@ export class OrderDeliveryEffects {
       return this.actions$.pipe(
         ofType(OrderDeliveryActions.loadLocationsSuccess),
         tap((cities) => {
-          console.log(cities);
+          // nothing here, internal state is not changing
         })
       );
     },
     { dispatch: false }
   );
 
-  // add failure ^ with toaster
+  onloadLocationsFailed$ = createEffect(
+    () => {
+      return this.actions$.pipe(
+        ofType(OrderDeliveryActions.loadLocationsFailure),
+        tap((error) => {
+          console.error('error while fetching cities', error)
+        })
+      );
+    },
+    { dispatch: false }
+  );
+
 
   onSubmitOrderForm$ = createEffect(() => {
     return this.actions$.pipe(
