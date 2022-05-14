@@ -14,11 +14,11 @@ GetPackage
 
   -- Feature folder (hold the order delivery module )
 
-  -- Order delivery module is  a lazy one, router is guarded with token check. 
+  -- Order delivery module is  a lazy one, router is guarded. 
   
   -- Order delivery component is container container that inject only the related Facade
 
-  -- Auth token is been saved to local storage and been injected to requests over request Authorization header.
+  -- Auth token is been saved to local storage and and been added to request Authorization header.
 
 
 
