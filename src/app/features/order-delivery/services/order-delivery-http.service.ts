@@ -16,7 +16,6 @@ export class OrderDeliveryHttpService {
   }
 
   submitOrderForm(payload:OrderForm): Observable<any> {
-   const test = JSON.stringify(payload);
     return this.http.post(`${environment.baseUrl}/${URLS.SUBMIT}`, JSON.stringify(payload));
   }
 }

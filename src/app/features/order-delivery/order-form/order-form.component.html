@@ -1,8 +1,7 @@
 <div class="form-container">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)">
     <div class="fields-container">
-      <!-- Name,  Phone -->
-      <div class="fields">
+      <div class="input-fields">
         <div class="field">
           <mat-form-field appearance="outline" class="form-element">
             <mat-label>Name</mat-label>
@@ -18,25 +17,26 @@
               placeholder="Phone Number"
               formControlName="phoneNumber"
             />
-            <mat-error *ngIf="!orderForm.phoneNumber.valid">IL Phone Required</mat-error>
+            <mat-error *ngIf="!orderForm.phoneNumber.valid"
+              >IL Phone Required</mat-error
+            >
           </mat-form-field>
         </div>
-      </div>
-      <!-- pickup address + city -->
-      <div class="fields">
-        <div>
-          <mat-form-field appearance="outline">
-            <mat-label>PickUp Address</mat-label>
-            <textarea
-              matInput
-              placeholder="Pickup Address"
-              formControlName="pickupAddress"
-            ></textarea>
-            <mat-error *ngIf="!orderForm.pickupAddress.valid">Required Field</mat-error>
 
+        <div class="field">
+          <mat-form-field appearance="outline" class="form-element">
+            <mat-label>Receiver Phone Number</mat-label>
+            <input
+              matInput
+              placeholder="Receiver Phone Number"
+              formControlName="receiverPhoneNumbers"
+            />
+            <mat-error *ngIf="!orderForm.receiverPhoneNumbers.valid"
+              >IL Phone Number</mat-error
+            >
           </mat-form-field>
         </div>
-        <div class="pickupCity">
+        <div class="field pickupCity">
           <mat-form-field appearance="outline">
             <mat-label>Pickup City</mat-label>
             <mat-select
@@ -47,14 +47,13 @@
                 {{ city.enName }}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="!orderForm.pickupCity.valid">Required Field</mat-error>
-
+            <mat-error *ngIf="!orderForm.pickupCity.valid"
+              >Required Field</mat-error
+            >
           </mat-form-field>
         </div>
-      </div>
-      <!-- drop city  reciever Name-->
-      <div class="fields">
-        <div class="dropoffCity">
+
+        <div class="field dropoffCity">
           <mat-form-field appearance="outline">
             <mat-label> Drop-off City</mat-label>
             <mat-select
@@ -65,10 +64,12 @@
                 {{ city.enName }}
               </mat-option>
             </mat-select>
-            <mat-error *ngIf="!orderForm.dropOffCity.valid">Required Field</mat-error>
+            <mat-error *ngIf="!orderForm.dropOffCity.valid"
+              >Required Field</mat-error
+            >
           </mat-form-field>
         </div>
-        <div>
+        <div class="field">
           <mat-form-field appearance="outline">
             <mat-label>Receiver Name</mat-label>
             <input
@@ -76,13 +77,14 @@
               placeholder="Receiver Name"
               formControlName="receiverName"
             />
-            <mat-error *ngIf="!orderForm.receiverName.valid">Required Field</mat-error>
+            <mat-error *ngIf="!orderForm.receiverName.valid"
+              >Required Field</mat-error
+            >
           </mat-form-field>
         </div>
       </div>
-      <!-- Address and phone number -->
-      <div class="fields">
-        <div>
+      <div class="textarea-fields">
+        <div class="field">
           <mat-form-field appearance="outline">
             <mat-label>Receiver Address</mat-label>
             <textarea
@@ -90,25 +92,39 @@
               placeholder="Receiver Address"
               formControlName="dropOffAddress"
             ></textarea>
-            <mat-error *ngIf="!orderForm.dropOffAddress.valid">Required Field</mat-error>
+            <mat-error *ngIf="!orderForm.dropOffAddress.valid"
+              >Required Field</mat-error
+            >
           </mat-form-field>
         </div>
-        <div>
-          <mat-form-field appearance="outline" class="form-element">
-            <mat-label>Receiver Phone Number</mat-label>
-            <input
+        <div class="field">
+          <mat-form-field appearance="outline">
+            <mat-label>PickUp Address</mat-label>
+            <textarea
               matInput
-              placeholder="Receiver Phone Number"
-              formControlName="receiverPhoneNumbers"
-            />
-            <mat-error *ngIf="!orderForm.receiverPhoneNumbers.valid">IL Phone Number</mat-error>
+              placeholder="Pickup Address"
+              formControlName="pickupAddress"
+            ></textarea>
+            <mat-error *ngIf="!orderForm.pickupAddress.valid"
+              >Required Field</mat-error
+            >
           </mat-form-field>
         </div>
+
       </div>
-      <div class="fields">
-        <button [disabled]="!formGroup.valid" mat-button type="submit" color="primary">Submit</button>
       </div>
+      <div>
     </div>
+    <div>
+    <button
+    [disabled]="!formGroup.valid"
+    mat-button
+    type="submit"
+    color="primary"
+  >
+    Submit
+  </button>
+  <span>Delivery Price - {{ price }}</span>
+</div>
   </form>
-  <p>Delivery Price - {{ price }}</p>
 </div>
