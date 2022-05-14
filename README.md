@@ -80,13 +80,21 @@ the page should change direction (rtl ltr)
 
 ## General
 Style code and appearance
-use angular as the framework
-we recommend using a state management framework such as angular/ngrx
+
+use angular as the framework - done
+
+we recommend using a state management framework such as angular/ngrx - done
+
 the page should be styled and look good
-feel free to use an external library like angular material or bootstrap
-the page should be responsive and work well on desktop and mobile
-the project should be ready for build and run
-you can upload the code to GitHub and submit a link or submit a zip file with the project
+
+feel free to use an external library like angular material or bootstrap - done
+
+the page should be responsive and work well on desktop and mobile - done
+
+the project should be ready for build and run - done
+
+you can upload the code to GitHub and submit a link or submit a zip file with the project -done
+
 URLs 
 login: https://mock-stg.getpackage-dev.com/login POST
 cities: https://mock-stg.getpackage-dev.com/cities GET
