@@ -1,11 +1,12 @@
+//angular
+import { NgModule, Optional, SkipSelf } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
-
-import { NgModule, Optional, SkipSelf } from "@angular/core";
+//ngrx
 import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-
+//app
 import { environment } from "../../environments/environment";
 import { AuthModule } from "./auth/auth.module";
 import { AuthInterceptor } from './auth/interceptors';
@@ -22,7 +23,7 @@ import { AuthInterceptor } from './auth/interceptors';
       strictActionSerializability: true,
       strictStateSerializability: true,
     } },),
-    !environment.production ? StoreDevtoolsModule.instrument({ name: "Get Delivery" }) : [],
+    !environment.production ? StoreDevtoolsModule.instrument({ name: "Get Package" }) : [],
     EffectsModule.forRoot([]),
 
     // Application modules

@@ -11,7 +11,7 @@ import {
 import { Observable, EMPTY, of } from 'rxjs';
 import * as OrderDeliveryActions from './order-delivery.actions';
 import { OrderDeliveryHttpService } from '../services/order-delivery-http.service';
-import { ToasterService } from 'src/app/core/services/toaster.service';
+import { ToasterService } from 'src/app/core/services';
 
 @Injectable()
 export class OrderDeliveryEffects {

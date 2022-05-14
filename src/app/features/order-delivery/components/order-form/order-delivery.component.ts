@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { City } from '../../order-delivery.models';
-import { OrderForm } from '../../order-form/order-form.component';
 import { OrderFacade } from '../../services/orderFacade.service';
 
 @Component({

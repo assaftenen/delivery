@@ -1,10 +1,16 @@
 //core
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 //order delivery module
-
+import { CitiesResolver } from './order-delivery.resolver';
+import { OrderFacade } from './services/orderFacade.service';
+import { OrderFormComponent } from './order-form/order-form.component';
 import { RouterModule, Routes } from '@angular/router';
+import { OrderDeliveryHttpService } from './services/order-delivery-http.service';
+import { OrderDeliveryComponent } from './components/order-form/order-delivery.component';
+
 
 //ngrx
 import { StoreModule } from '@ngrx/store';
@@ -14,12 +20,6 @@ import {
   OrderDeliveryEffects,
   orderDeliveryFeatureKey,
 } from './store';
-import { CitiesResolver } from './order-delivery.resolver';
-import { OrderFacade } from './services/orderFacade.service';
-import { OrderDeliveryHttpService } from './services/order-delivery-http.service';
-import { SharedModule } from 'src/app/shared/shared.module';
-import { OrderFormComponent } from './order-form/order-form.component';
-import { OrderDeliveryComponent } from './components/order-form/order-delivery.component';
 
 const routes: Routes = [
   {

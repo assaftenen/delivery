@@ -9,7 +9,7 @@ import {
   tap,
 } from 'rxjs/operators';
 import { TokenStorageService } from 'src/app/core/services';
-import { ToasterService } from 'src/app/core/services/toaster.service';
+import { ToasterService } from 'src/app/core/services';
 import { AuthService } from '../../auth.service';
 import * as AuthActions from '../actions/auth.actions';
 @Injectable()

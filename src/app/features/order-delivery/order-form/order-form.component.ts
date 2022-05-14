@@ -36,8 +36,11 @@ export class OrderFormComponent implements OnInit {
   formGroup: any;
   private regExp: RegExp =
     /^\+?(972|0)(\-)?0?(([23489]{1}\d{7})|[5]{1}\d{8})$/;
-  constructor() {}
-  get orderForm () { return this.formGroup.controls; }
+
+
+  get orderForm () {
+    return this.formGroup.controls;
+  }
   ngOnInit(): void {
     this.buildFormGroup();
   }
