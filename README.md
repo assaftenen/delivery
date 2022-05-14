@@ -2,9 +2,17 @@ GetPackage
 
 ## GENERAL
 
+- Record of App running:
+
+https://www.loom.com/share/7ee0ae4c99584481b3e0369fc2361600
+
+Build with:
+
   - Angular Material as UI library.
 
   - State Management - Ngrx 
+
+  General:
 
   - Each feature data is managed by Facade service that wrap actions, reducer, effects and selectors and all components IO 
 
@@ -17,6 +25,12 @@ GetPackage
   - Order delivery component is container container that inject only the related Facade (as the Auth one)
 
   - Auth token is been saved to local storage and and been added to request Authorization header.
+
+  - Order Form with validation - all fields are required and the phone are IL patterns separated
+
+  
+
+  
 
 
 
