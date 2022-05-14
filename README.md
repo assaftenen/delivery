@@ -2,29 +2,28 @@ GetPackage
 
 ## GENERAL
 
-  -- Angular Material as UI library.
+  - Angular Material as UI library.
 
-  -- State Management - Ngrx 
+  - State Management - Ngrx 
 
-  -- Each feature data is managed by Facade service that wrap actions, reducer, effects and selectors and all components IO 
+  - Each feature data is managed by Facade service that wrap actions, reducer, effects and selectors and all components IO 
 
-  -- Core module wrap core services and Auth module (which can be scaled up)
+  - Core module wrap core services and Auth module (which can be scaled up)
 
-  -- Shared module  wrap  Material module and shared elements
+  - Shared module  wrap  Material module and shared elements
 
-  -- Feature folder (hold the order delivery module )
-
-  -- Order delivery module is  a lazy one, router is guarded. 
+  - Feature folder - hold the  order delivery module which is a Lazy loading module using routing guard 
   
-  -- Order delivery component is container container that inject only the related Facade
+  - Order delivery component is container container that inject only the related Facade (as the Auth one)
 
-  -- Auth token is been saved to local storage and and been added to request Authorization header.
+  - Auth token is been saved to local storage and and been added to request Authorization header.
 
 
 
 
 ## TASK (Copy + Status)
 Front-end task
+
 Please read all the instructions before you start…Your challenge (if you choose to accept it...) is as follow:
 
 ---

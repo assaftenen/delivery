@@ -25,7 +25,7 @@ import {
 
       if (accessToken) {
         req = req.clone({
-          setHeaders: { authorization: `bearer ${accessToken}` },
+          setHeaders: { Authorization: `bearer ${accessToken}` },
         });
       }
 
