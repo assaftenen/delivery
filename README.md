@@ -2,9 +2,6 @@ GetPackage
 
 ## GENERAL
 
-- Record of App running:
-
-https://www.loom.com/share/2be6c81f5a5440b88522d638c986f7fd
 
 Build with:
 
